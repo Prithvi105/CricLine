@@ -13,7 +13,6 @@ const Wrapper = styled.section`
             cursor : pointer;
         }
     }
-
 `
 
 export default Wrapper

@@ -4,7 +4,7 @@ import Wrapper from './style'
 const Header = () => {
   return (
     <Wrapper>
-      <h1>SCORO</h1>
+      <h1>CricLine</h1>
     </Wrapper>
   )
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import Wrapper from './style'
 
 const Control = (
@@ -6,10 +5,10 @@ const Control = (
         setScore,
         setBalls,
         setWickets,
-        setTimeline
+        setTimeline,
     }
 ) => {
-
+   
     const updateScore = (e) => {
         const value = e.target.value
         switch(value){
@@ -33,21 +32,42 @@ const Control = (
                 setTimeline(timeline => [...timeline, value])
             break;
             case "Wd+":
-                setScore(score => score + 1)
-                setTimeline(timeline => [...timeline, value])
+                const extraRunsWd = parseInt(prompt("Enter extra runs for the wide ball:"));
+                if (!isNaN(extraRunsWd) && extraRunsWd>=0  && extraRunsWd<=6) {
+                    setScore(score => score + extraRunsWd + 1);  
+                    setTimeline(timeline => [...timeline, `Wd+${extraRunsWd}`]); 
+                }else {
+                    alert("Invalid input for extra runs. Please enter a number between 0 and 6");
+                  }
             break;
             case "NB+":
-                setScore(score => score + 1)
-                setTimeline(timeline => [...timeline, value])
+                const extraRunsNB = parseInt(prompt("Enter extra runs for the no-ball:"));
+                if (!isNaN(extraRunsNB) && extraRunsNB >=0  && extraRunsNB <=6 ) {
+                    setScore(score => score + extraRunsNB + 1);  
+                    setTimeline(timeline => [...timeline, `NB+${extraRunsNB}`]); 
+                }else {
+                    alert("Invalid input for extra runs. Please enter a number between 0 and 6");
+                  }
             break;
-            case "Bye+":
-                setBalls(balls => balls + 1)
-                setTimeline(timeline => [...timeline, value])
+            case "Bye+":  
+                const extraRunsBye = parseInt(prompt("Enter the runs for the Bye :"));
+                if (!isNaN(extraRunsBye) && extraRunsBye>=0  && extraRunsBye<=6) {
+                    setBalls(balls => balls + 1)
+                    setScore(score => score + extraRunsBye);  
+                    setTimeline(timeline => [...timeline, `Bye+${extraRunsBye}`]); 
+
+                }else {
+                    alert("Invalid input for extra runs. Please enter a number between 0 and 6");
+                  }
             break;
+            
+                 
             default:
-                setScore(score => score)
-        }
-    }
+                setScore(score => score )
+          }
+
+            }
+                
 
   return (
     <Wrapper>

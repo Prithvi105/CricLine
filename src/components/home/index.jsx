@@ -1,12 +1,13 @@
 import React from 'react'
 import Wrapper from './style'
 
-const Header = () => {
+const Home = () => {
+  
   return (
     <Wrapper>
-      <h1>CricLine</h1>
+      
     </Wrapper>
   )
 }
 
-export default Header
+export default Home

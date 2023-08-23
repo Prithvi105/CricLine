@@ -42,7 +42,7 @@ const StartAMatch = () => {
           onChange={(e) => setOvers(e.target.value)}
         />
       </FormGroup>
-      <input
+      <input style={{ color: "fff" ,background:'green' ,border:"none",height : "30px"}}
         type = "button"
         value = "start Match"
         onClick = {start}

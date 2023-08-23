@@ -42,7 +42,7 @@ export const StartMatchButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 19px;
+  
 
   &:hover {
     background-color: #0056b3;

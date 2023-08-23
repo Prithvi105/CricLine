@@ -1,16 +1,30 @@
-import React from "react"
-import Burger from "../burger"
-import { Nav } from "./style"
+import React, { useState } from 'react'
+
+import "./navbar.css"
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-    return (
-      <Nav>
-        <div className="logo">
-          <h1>CricLine</h1>
-        </div>
-        <Burger />
-      </Nav>
-    )
-  }
-  
-  export default Navbar
+  const [ isMobile , setIsMobile] = useState(false);
+
+  return (
+   
+    <nav className=' navbar'>
+        <h3 className='logo'>CricLine</h3>
+        <ul className= {isMobile ? "nav-links-mobile" : "nav-links"}
+          onClick={() => setIsMobile (false)}>
+        <Link to = "/" className='home'><li>Home</li></Link>
+        <Link to = "StartAMatch" className='startAMatch'><li>Start A Match</li></Link>
+
+
+
+        </ul>
+        <button className='mobile-menu-icon'
+        onClick={() => setIsMobile(!isMobile)}>
+          {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+        </button>
+    </nav>
+   
+  )
+}
+
+export default Navbar

@@ -13,7 +13,6 @@ const StartAMatch = () => {
   const start =()=>{
     navigate("/scorecard")
   }
-
  
   return (
     <Container>

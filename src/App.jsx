@@ -12,15 +12,9 @@ const App = () => {
       <BrowserRouter>
       < Navbar/> 
       <Routes>
-
-      <Route path = "/" element ={<Home/>} />
-     <Route path = "StartAMatch" element ={<StartAMatch/>} />
-     <Route path = "scorecard" element ={<Scorecard/>} />
-
-     
-
-
-
+        <Route path = "/" element ={<Home/>} />
+        <Route path = "StartAMatch" element ={<StartAMatch/>} />
+        <Route path = "scorecard" element ={<Scorecard/>} />
       </Routes>
      <Footer/>
     </BrowserRouter>

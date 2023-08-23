@@ -8,7 +8,6 @@ import { styled } from "styled-components";
 `
 
 export const Timeline = styled.div`
-
     display : flex;
     overflow: auto;
     justify-content: flex-end;

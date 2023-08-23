@@ -9,6 +9,7 @@ import Scorecard from './components/scorecard'
 const App = () => {
   return (
     <div className="inner">
+      <div className='inner'>
       <BrowserRouter>
       < Navbar/> 
       <Routes>
@@ -24,6 +25,7 @@ const App = () => {
       </Routes>
      <Footer/>
     </BrowserRouter>
+    </div>
     
     </div>
   )

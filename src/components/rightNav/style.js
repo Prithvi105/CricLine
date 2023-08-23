@@ -19,10 +19,11 @@ import styled from 'styled-components';
     height: 100vh;
     width: 300px;
     padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
+    // transition: transform 0.3s ease-in-out;
 
     li {
       color: #fff;
+      list-style : none;
     }
   }
 `;

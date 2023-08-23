@@ -72,17 +72,17 @@ const Control = (
   return (
     <Wrapper>
         <div className="inner">
-            <input type="button" value={6} onClick={updateScore}/>
-            <input type="button" value={"Bye+"} onClick={updateScore}/>
-            <input type="button" value={"NB+"} onClick={updateScore}/>
             <input type="button" value={"UNDO"}  onClick={updateScore}/>
-            <input type="button" value={3} onClick={updateScore}/>
+            <input type="button" value={"NB+"} onClick={updateScore}/>
+            <input type="button" value={"Bye+"} onClick={updateScore}/>
             <input type="button" value={4} onClick={updateScore}/>
-            <input type="button" value={5} onClick={updateScore}/>
+            <input type="button" value={6} onClick={updateScore}/>
             <input type="button" value={"Wd+"} onClick={updateScore}/>
+            <input type="button" value={2} onClick={updateScore}/>
+            <input type="button" value={3} onClick={updateScore}/>
+            <input type="button" value={5} onClick={updateScore}/>
             <input type="button" value={0} onClick={updateScore}/>
             <input type="button" value={1} onClick={updateScore}/>
-            <input type="button" value={2} onClick={updateScore}/>
             <input type="button" value={"OUT"} onClick={updateScore}/>
         </div>
     </Wrapper>

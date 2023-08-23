@@ -12,16 +12,16 @@ export const Timeline = styled.div`
     display : flex;
     overflow: auto;
     justify-content: flex-end;
-    background-color: #444;
+    background-color: grey;
      .timeline-item{
-        min-width : 32px;
+        min-width : 33px;
         height: 32px;
         text-align: center;
         line-height: 32px;
         border-radius: 16px;
         background : maroon;
         color : #fff;
-        margin : 10px;
+        margin : 12px;
         font-size: 1rem;
       }
   `

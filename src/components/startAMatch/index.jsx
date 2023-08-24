@@ -1,53 +1,69 @@
 import React from 'react';
  import { useState } from 'react';
-import { Container, FormGroup, FormInput, FormLabel,Title } from './style';
+import { useDispatch } from 'react-redux' 
 import { useNavigate } from 'react-router';
+import Wrapper from './style';
  
 
 
 const StartAMatch = () => {
+
   const [team1, setTeam1] = useState('');
   const [team2, setTeam2] = useState('');
   const [overs, setOvers] = useState('');
+  const dispatch = useDispatch()
   const navigate = useNavigate();
-  const start =()=>{
-    navigate("/scorecard")
-  }
+  const start = () => {
+    if (team1 && team2 && overs) {
+      console.log(team1, team2, overs)
+      dispatch({
+        type : "SET_TEAM_NAMES",
+        payload :{  team1,team2,overs }
+      })
+      navigate('/scorecard');
+    } else {
+      alert('Please fill in all the required fields.');
+    }
+  };
 
  
   return (
-    <Container>
-      <Title>Start A Match</Title>
-      <FormGroup>
-        <FormLabel>Team 1:</FormLabel>
-        <FormInput
+    <Wrapper>
+      <form>
+      <h1>Enter Details</h1>
+      <div>
+        <input
           type="text"
+          placeholder=' Enter Batting Team Name'
           value={team1}
-          onChange={(e) => setTeam1(e.target.value)}
+          onChange={(e) => {setTeam1(e.target.value)}}
         />
-      </FormGroup>
-      <FormGroup>
-        <FormLabel>Team 2:</FormLabel>
-        <FormInput
+    </div>
+      <div>
+        <input
           type="text"
+          placeholder=' Enter Bowling Team Name'
           value={team2}
-          onChange={(e) => setTeam2(e.target.value)}
+          onChange={(e) => {setTeam2(e.target.value)}}
         />
-      </FormGroup>
-      <FormGroup>
-        <FormLabel>Overs:</FormLabel>
-        <FormInput
+      </div>
+      <div>
+        <input
           type="number"
+          placeholder='Enter Overs'
           value={overs}
-          onChange={(e) => setOvers(e.target.value)}
+          onChange={(e) => {setOvers(e.target.value)}}
         />
-      </FormGroup>
-      <input style={{ color: "fff" ,background:'green' ,border:"none",height : "30px"}}
-        type = "button"
-        value = "start Match"
-        onClick = {start}
-      />
-    </Container>
+      </div>
+      <div id="submit">
+                    <input type='submit'
+                        value='Start Match'
+                        onClick={start}
+                    />
+                </div>
+
+      </form>
+    </Wrapper>
   );
 };
 

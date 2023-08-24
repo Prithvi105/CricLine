@@ -1,51 +1,64 @@
-import styled from 'styled-components';
 
- export const Container = styled.div`
-  max-width:400px;
+import { styled } from "styled-components";
+
+const Wrapper = styled.div`
+margin:100px auto;
+border-radius : 3px;
+box-sizing : border-box;
+max-width:400px;
+form {
+    padding :30px 40px;
+    margin :10px auto ;
+    width: 70%;
+    border : solid white 1px;
+    border-radius : 20px;
+    box-shadow: 4px 4px 10px #00000067;
+    background-color : white;
+    font-size: 20px;
+    min-height: 40vh;
   
-  margin: auto;
-  padding: 59px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-`;
+}
+form h1 {
+    font-size : 1.6rem;
+    margin :5px 0 20px 0;
 
-export const Title = styled.h2`
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-`;
+}
+form input[type="text"],
+form input[type="number"]
+{
+    border: 0.5px solid #6c6c6c;
+    border-radius : 5px;
+    cursor : pointer;
+    width : 100%;
+    height : 45px;
+    box-sizing : border-box;
+     margin: 8px 0px;
+    padding :5px;
+     color: black;
+     
 
-export const FormGroup = styled.div`
-  margin-bottom: 15px;
-`;
-
-export const FormLabel = styled.label`
-  display: block;
-  font-weight: bold;
-`;
-
-export const FormInput = styled.input`
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-export const StartMatchButton = styled.button`
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: green;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    &:focus{
+        color: black;
+    }
+}
+form #submit  {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+#submit input[type=submit]  {
+   padding : 0 50px;
+   font-size:1.5rem;
+   background :  green ;
+   color : white;
+   margin-top : 15px ;
+   border-radius : 5px;
+   width : 200px;
+   height : 40px;
   
+}
 
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
+
+` 
+export default Wrapper

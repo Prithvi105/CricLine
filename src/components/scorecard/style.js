@@ -5,14 +5,17 @@ import { styled } from "styled-components";
     flex : 1;
     text-align: center;
     font-size: 2rem;
-`
+    .inner{
+      max-width : 400px;
+      margin : auto;
+    }
 
-export const Timeline = styled.div`
-
+    .timeline{
     display : flex;
     overflow: auto;
     justify-content: flex-end;
     background-color: grey;
+    }
      .timeline-item{
         min-width : 33px;
         height: 32px;
@@ -24,10 +27,13 @@ export const Timeline = styled.div`
         margin : 12px;
         font-size: 1rem;
       }
-  `
-  export const Wrap = styled.div`
-  
-    max-width : 400px;
-    margin : auto;
+     #teams{
+      background : grey;
+      display : flex;
+      justify-content : space-between;
+      padding : 0px 30px;
+      font-size : 0.5em;
+     }
+ 
   `
  

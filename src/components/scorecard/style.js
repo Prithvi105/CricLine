@@ -8,6 +8,10 @@ import { styled } from "styled-components";
     .inner{
       max-width : 400px;
       margin : auto;
+      p{
+        margin : 5px;
+      }
+    
     }
 
     .timeline{
@@ -17,15 +21,15 @@ import { styled } from "styled-components";
     background-color: grey;
     }
      .timeline-item{
-        min-width : 33px;
-        height: 32px;
-        text-align: center;
-        line-height: 32px;
-        border-radius: 16px;
+        min-width : 38px;
+        height: 38px;
+        text-align: center;=
+        line-height: 38px;
+        border-radius: 19px;
         background : maroon;
         color : #fff;
-        margin : 12px;
-        font-size: 1rem;
+        margin : 10px;
+        font-size: 0.8rem;
       }
      #teams{
       background : grey;
@@ -36,6 +40,11 @@ import { styled } from "styled-components";
       margin : auto;
       padding : 0 20px;
      }
+     h3{
+      margin-top:0px;
+      margin-bottom : 1px;
+     }
+    
  
   `
  

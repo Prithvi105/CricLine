@@ -3,8 +3,7 @@ import { createStore } from "redux"
 const initialState = {
     team1: '',
     team2: '',
-    overs :0
-    
+    overs : 0
 };
 const reducer = (state = initialState,action) => {
     switch(action.type){

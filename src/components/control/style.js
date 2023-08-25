@@ -7,6 +7,10 @@ const Wrapper = styled.section`
         flex-wrap : wrap;
         max-width : 400px;
         margin: auto;
+        position :fixed;
+        bottom :0;
+       
+
         input{
             flex : 1;
             min-width : 100px;

@@ -14,11 +14,11 @@ import styled from 'styled-components';
     background-color: #0D2538;
     position: fixed;
     transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
-    top: 0;
+    top: 53px;
     right: 0;
     height: 100vh;
     width: 300px;
-    padding-top: 3.5rem;
+    padding-top: 4rem;
     // transition: transform 0.3s ease-in-out;
 
     li {

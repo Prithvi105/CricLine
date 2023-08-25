@@ -3,7 +3,7 @@ import { useState } from "react"
 import RightNav from "../rightNav"
 import { StyledBurger } from "./style"
 const Burger = () => {
-    const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
     
     return (
       <>

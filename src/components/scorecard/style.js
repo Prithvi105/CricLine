@@ -9,39 +9,24 @@ import { styled } from "styled-components";
       max-width : 400px;
       margin : auto;
       p{
-        margin : 5px;
+        margin : 6px;
       }
     
     }
 
-    .timeline{
-    display : flex;
-    overflow: auto;
-    justify-content: flex-end;
-    background-color: grey;
-    }
-     .timeline-item{
-        min-width : 38px;
-        height: 38px;
-        text-align: center;=
-        line-height: 38px;
-        border-radius: 19px;
-        background : maroon;
-        color : #fff;
-        margin : 10px;
-        font-size: 0.8rem;
-      }
+    
      #teams{
       background : grey;
       display : flex;
       justify-content : space-between;
-      font-size : 0.5em;
+      font-size : 0.45em;
+      color : maroon;
       max-width : 400px;
       margin : auto;
-      padding : 0 20px;
+      padding : 0 10px;
      }
      h3{
-      margin-top:0px;
+      margin-top:3px;
       margin-bottom : 1px;
      }
     

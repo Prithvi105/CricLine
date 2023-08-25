@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useEffect,useState ,useRef} from 'react';
 import Wrapper from './style'
 
 const Control = (
@@ -9,6 +9,7 @@ const Control = (
         setTimeline,
         score,
         balls,
+        overs,
         wickets,
         timeline,
         inning,
@@ -19,12 +20,14 @@ const Control = (
     const [history, setHistory] = useState([]);
     const [buttonsDisabled, setButtonsDisabled] = useState(false);
 
-    useEffect(() => {
-        if (inning === 2 && score >= target) {
+     useEffect(() => {
+        if (inning === 2 && score >= target-1) {
           setButtonsDisabled(true);
         }
       }, [inning, score, target]);
 
+
+  
     const updateScore = (e) => {
         const value = e.target.value
         
@@ -103,21 +106,26 @@ const Control = (
                 setScore(score);
              }       
      }        
-
+     const timelineRef = useRef();
   return (
     <Wrapper>
+        <div className='timeline' ref={timelineRef}>
+            {timeline.map(item => (
+              <div className='timeline-item'>{item}</div>
+            ))}
+          </div>
         <div className="inner">
-            <input type="button" value={5} onClick={updateScore} disabled={buttonsDisabled}/>
-            <input type="button" value={"Bye+"} onClick={updateScore} disabled={buttonsDisabled}/>
-            <input type="button" value={"NB+"} onClick={updateScore} disabled={buttonsDisabled}/>
             <input type="button" value={"UNDO"}  onClick={updateScore} disabled={buttonsDisabled}/>
-            <input type="button" value={3} onClick={updateScore} disabled={buttonsDisabled}/>
+            <input type="button" value={"NB+"} onClick={updateScore} disabled={buttonsDisabled}/>
+            <input type="button" value={"Bye+"} onClick={updateScore} disabled={buttonsDisabled}/>
             <input type="button" value={4} onClick={updateScore} disabled={buttonsDisabled}/>
             <input type="button" value={6} onClick={updateScore} disabled={buttonsDisabled}/>
             <input type="button" value={"Wd+"} onClick={updateScore} disabled={buttonsDisabled}/>
-            <input type="button" value={0} onClick={updateScore} disabled={buttonsDisabled}/>
-            <input type="button" value={1} onClick={updateScore} disabled={buttonsDisabled}/>
             <input type="button" value={2} onClick={updateScore} disabled={buttonsDisabled}/>
+            <input type="button" value={3} onClick={updateScore} disabled={buttonsDisabled}/>
+            <input type="button" value={5} onClick={updateScore} disabled={buttonsDisabled}/>
+            <input type="button" value={0} onClick={updateScore} disabled={buttonsDisabled}/>
+            <input type="button" value={1} onClick={updateScore} disabled={buttonsDisabled}/> 
             <input type="button" value={"OUT"} onClick={updateScore} disabled={buttonsDisabled}/>
         </div>
     </Wrapper>

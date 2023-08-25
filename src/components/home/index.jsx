@@ -5,7 +5,7 @@ const Home = () => {
   
   return (
     <Wrapper>
-      
+      <h1>Lets play!!!</h1>
     </Wrapper>
   )
 }

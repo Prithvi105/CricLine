@@ -15,7 +15,6 @@ const StartAMatch = () => {
   const navigate = useNavigate();
   const start = () => {
     if (team1 && team2 && overs) {
-      console.log(team1, team2, overs)
       dispatch({
         type : "SET_TEAM_NAMES",
         payload :{  team1,team2,overs }
@@ -56,11 +55,12 @@ const StartAMatch = () => {
         />
       </div>
       <div id="submit">
-                    <input type='submit'
-                        value='Start Match'
-                        onClick={start}
-                    />
-                </div>
+        <input 
+          type='submit'
+          value='Start Match'
+          onClick={start}
+        />
+      </div>
 
       </form>
     </Wrapper>

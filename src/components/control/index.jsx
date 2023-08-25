@@ -23,20 +23,19 @@ const Control = (
         if (inning === 2 && score >= target) {
           setButtonsDisabled(true);
         }
-      }, [inning, score, target]);
+        console.log(balls);
+      }, [inning, score, target,balls]);
 
     const updateScore = (e) => {
         const value = e.target.value
-        
 
         setHistory([...history, { score, balls, wickets, timeline }]);
-
-        
 
         switch(value){
             case "0":
                 setBalls(balls => balls + 1)
                 setTimeline(timeline => [...timeline, value])
+                setHistory([...history, { score, balls, wickets, timeline }]);
             break;
 
             case "1":
@@ -48,12 +47,14 @@ const Control = (
                 setScore(score => score + parseInt(value))
                 setBalls(balls => balls + 1)
                 setTimeline(timeline => [...timeline, value])
+                setHistory([...history, { score, balls, wickets, timeline }]);
             break;
 
             case "OUT":
                 setBalls(balls => balls + 1)
                 setWickets(wicket => wicket + 1)
                 setTimeline(timeline => [...timeline, value])
+                setHistory([...history, { score, balls, wickets, timeline }]);
             break;
 
             case "Wd+":
@@ -64,6 +65,7 @@ const Control = (
                 }else {
                     alert("Invalid input for extra runs. Please enter a number between 0 and 6");
                   }
+                  setHistory([...history, { score, balls, wickets, timeline }]);
             break;
 
             case "NB+":
@@ -74,6 +76,7 @@ const Control = (
                 }else {
                     alert("Invalid input for extra runs. Please enter a number between 0 and 6");
                   }
+                setHistory([...history, { score, balls, wickets, timeline }]);
             break;
 
             case "Bye+":  
@@ -86,10 +89,13 @@ const Control = (
                 }else {
                     alert("Invalid input for extra runs. Please enter a number between 0 and 6");
                   }
+                setHistory([...history, { score, balls, wickets, timeline }]);
+
             break;
             
             case "UNDO":
                 if (history.length > 0) {
+                    console.log(history);
                     const previousState = history.pop();
                     setScore(previousState.score);
                     setBalls(previousState.balls);
@@ -125,11 +131,6 @@ const Control = (
 }
 
 export default Control
-
-
-
-
-
 
 
 

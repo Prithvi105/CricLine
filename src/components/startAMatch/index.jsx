@@ -14,8 +14,7 @@ const StartAMatch = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const start = () => {
-    if (team1 && team2 && overs) {
-      console.log(team1, team2, overs)
+    if (team1 && team2 && overs ) {
       dispatch({
         type : "SET_TEAM_NAMES",
         payload :{  team1,team2,overs }

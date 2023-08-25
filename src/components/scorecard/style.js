@@ -31,8 +31,10 @@ import { styled } from "styled-components";
       background : grey;
       display : flex;
       justify-content : space-between;
-      padding : 0px 30px;
       font-size : 0.5em;
+      max-width : 400px;
+      margin : auto;
+      padding : 0 20px;
      }
  
   `

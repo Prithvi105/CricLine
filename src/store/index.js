@@ -2,7 +2,8 @@ import { createStore } from "redux"
 
 const initialState = {
     team1: '',
-    team2: ''
+    team2: '',
+    overs :0
     
 };
 const reducer = (state = initialState,action) => {
@@ -11,7 +12,8 @@ const reducer = (state = initialState,action) => {
         return {
             ...state,
             team1: action.payload.team1,
-            team2: action.payload.team2
+            team2: action.payload.team2,
+            overs: action.payload.overs
           };
         default:
           return state;

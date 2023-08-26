@@ -19,14 +19,11 @@ const Control = (
 
     const [history, setHistory] = useState([]);
     const [buttonsDisabled, setButtonsDisabled] = useState(false);
-
-     useEffect(() => {
-        if (inning === 2 && score >= target-1) {
+    useEffect(() => {
+        if ((inning === 2 && score === (target - 1) && wickets === 10)|| (inning === 2 && score >= target)||(inning === 2 && score === (target - 1) && balls === (overs * 6 ))||(inning === 2 && balls === (overs * 6 ))) {
           setButtonsDisabled(true);
         }
-      }, [inning, score, target]);
-
-
+      }, [inning, score, target,wickets,balls ,overs]);
   
     const updateScore = (e) => {
         const value = e.target.value

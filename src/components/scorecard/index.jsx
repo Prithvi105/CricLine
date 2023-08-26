@@ -73,6 +73,7 @@ const Scorecard = () => {
         inning={inning}
         balls={balls}
         timeline={timeline}
+        overs={overs}
       />
     </div>
   );

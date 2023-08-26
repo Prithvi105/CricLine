@@ -20,7 +20,7 @@ import { styled } from "styled-components";
       display : flex;
       justify-content : space-between;
       font-size : 0.45em;
-      color : maroon;
+      color : black;
       max-width : 400px;
       margin : auto;
       padding : 0 10px;

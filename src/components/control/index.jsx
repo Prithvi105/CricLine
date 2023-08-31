@@ -1,4 +1,4 @@
-import {  useEffect,useState ,useRef} from 'react';
+import {  useEffect,useState ,useRef} from 'react'
 import Wrapper from './style'
 
 const Control = (
@@ -17,19 +17,20 @@ const Control = (
     }
 ) => {
 
-    const [history, setHistory] = useState([]);
-    const [buttonsDisabled, setButtonsDisabled] = useState(false);
+    const [history, setHistory] = useState([])
+    const [buttonsDisabled, setButtonsDisabled] = useState(false)
+
     useEffect(() => {
         if ((inning === 2 && score === (target - 1) && wickets === 10)|| (inning === 2 && score >= target)||(inning === 2 && score === (target - 1) && balls === (overs * 6 ))||(inning === 2 && balls === (overs * 6 ))) {
-          setButtonsDisabled(true);
+          setButtonsDisabled(true)
         }
-      }, [inning, score, target,wickets,balls ,overs]);
+      }, [inning, score, target,wickets,balls ,overs])
   
     const updateScore = (e) => {
         const value = e.target.value
         
 
-        setHistory([...history, { score, balls, wickets, timeline }]);
+        setHistory([...history, { score, balls, wickets, timeline }])
 
         
 
@@ -37,7 +38,7 @@ const Control = (
             case "0":
                 setBalls(balls => balls + 1)
                 setTimeline(timeline => [...timeline, value])
-            break;
+            break
 
             case "1":
             case "2":
@@ -48,62 +49,67 @@ const Control = (
                 setScore(score => score + parseInt(value))
                 setBalls(balls => balls + 1)
                 setTimeline(timeline => [...timeline, value])
-            break;
+            break
 
             case "OUT":
                 setBalls(balls => balls + 1)
                 setWickets(wicket => wicket + 1)
                 setTimeline(timeline => [...timeline, value])
-            break;
+            break
 
             case "Wd+":
-                const extraRunsWd = parseInt(prompt("Enter extra runs for the wide ball:"));
+                const extraRunsWd = parseInt(prompt("Enter extra runs for the wide ball:"))
                 if (!isNaN(extraRunsWd) && extraRunsWd>=0  && extraRunsWd<=6) {
-                    setScore(score => score + extraRunsWd + 1);  
-                    setTimeline(timeline => [...timeline, `Wd+${extraRunsWd}`]); 
+                    setScore(score => score + extraRunsWd + 1)  
+                    setTimeline(timeline => [...timeline, `Wd+${extraRunsWd}`]) 
                 }else {
-                    alert("Invalid input for extra runs. Please enter a number between 0 and 6");
+                    alert("Invalid input for extra runs. Please enter a number between 0 and 6")
                   }
-            break;
+            break
 
             case "NB+":
-                const extraRunsNB = parseInt(prompt("Enter extra runs for the no-ball:"));
+                const extraRunsNB = parseInt(prompt("Enter extra runs for the no-ball:"))
                 if (!isNaN(extraRunsNB) && extraRunsNB >=0  && extraRunsNB <=6 ) {
-                    setScore(score => score + extraRunsNB + 1);  
-                    setTimeline(timeline => [...timeline, `NB+${extraRunsNB}`]); 
+                    setScore(score => score + extraRunsNB + 1)  
+                    setTimeline(timeline => [...timeline, `NB+${extraRunsNB}`]) 
                 }else {
-                    alert("Invalid input for extra runs. Please enter a number between 0 and 6");
+                    alert("Invalid input for extra runs. Please enter a number between 0 and 6")
                   }
-            break;
+            break
 
             case "Bye+":  
-                const extraRunsBye = parseInt(prompt("Enter the runs for the Bye :"));
+                const extraRunsBye = parseInt(prompt("Enter the runs for the Bye :"))
                 if (!isNaN(extraRunsBye) && extraRunsBye>=0  && extraRunsBye<=6) {
                     setBalls(balls => balls + 1)
-                    setScore(score => score + extraRunsBye);  
-                    setTimeline(timeline => [...timeline, `Bye+${extraRunsBye}`]); 
+                    setScore(score => score + extraRunsBye)  
+                    setTimeline(timeline => [...timeline, `Bye+${extraRunsBye}`]) 
 
                 }else {
-                    alert("Invalid input for extra runs. Please enter a number between 0 and 6");
+                    alert("Invalid input for extra runs. Please enter a number between 0 and 6")
                   }
-            break;
+            break
             
             case "UNDO":
-                if (history.length > 0) {
-                    const previousState = history.pop();
-                    setScore(previousState.score);
-                    setBalls(previousState.balls);
-                    setWickets(previousState.wickets);
-                    setTimeline(previousState.timeline);
-                    setHistory([...history]);
+                if (inning === 1 && history.length > 0) {
+                    const previousState = history.pop()
+                    setScore(previousState.score)
+                    setBalls(previousState.balls)
+                    setWickets(previousState.wickets)
+                    setTimeline(previousState.timeline)
+                    setHistory([...history])
                 }
-            break;
+                else if(inning === 1 && history.length === 0){
+                    alert('nothing to undo')
+                }
+            
+
+            break
 
             default :
-                setScore(score);
+                setScore(score)
              }       
      }        
-     const timelineRef = useRef();
+     const timelineRef = useRef()
   return (
     <Wrapper>
         <div className='timeline' ref={timelineRef}>

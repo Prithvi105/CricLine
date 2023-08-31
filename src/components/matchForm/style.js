@@ -6,6 +6,8 @@ margin:100px auto;
 border-radius : 3px;
 box-sizing : border-box;
 max-width:400px;
+min-height: 61.7vh;
+
 form {
     padding :30px 40px;
     margin :10px auto ;

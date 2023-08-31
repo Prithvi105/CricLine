@@ -6,7 +6,17 @@ bottom: 0;
 left: 0;
 width: 100%;
 margin-top: auto;
-
+   
+#endInning{
+    max-width : 400px;
+    margin: auto;
+    input{
+        background : black;
+        color : white;
+        padding : 9px 10px;
+        
+    }
+}
     .inner{
         display : flex;
         flex-wrap : wrap;

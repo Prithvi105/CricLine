@@ -81,6 +81,7 @@ const Scorecard = () => {
         overs={overs}
         history = {history}
         setHistory = {setHistory}
+        setInning = {setInning}
       />
     </div>
   )

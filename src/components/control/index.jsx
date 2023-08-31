@@ -14,11 +14,14 @@ const Control = (
         timeline,
         inning,
         target,
+        setInning,
+        setTarget
     }
 ) => {
-
-    const [history, setHistory] = useState([])
-    const [buttonsDisabled, setButtonsDisabled] = useState(false)
+    const [historyInning1, setHistoryInning1] = useState([]);
+    const [historyInning2, setHistoryInning2] = useState([]);
+    const [buttonsDisabled, setButtonsDisabled] = useState(false);
+    
 
     useEffect(() => {
         if ((inning === 2 && score === (target - 1) && wickets === 10)|| (inning === 2 && score >= target)||(inning === 2 && score === (target - 1) && balls === (overs * 6 ))||(inning === 2 && balls === (overs * 6 ))) {
@@ -29,8 +32,27 @@ const Control = (
     const updateScore = (e) => {
         const value = e.target.value
         
+        if (value === "UNDO") {
+            if (inning === 1 && historyInning1.length > 0) {
+                const previousState = historyInning1.pop();
+                setScore(previousState.score);
+                setBalls(previousState.balls);
+                setWickets(previousState.wickets);
+                setTimeline(previousState.timeline);
+                setHistoryInning1([...historyInning1]);
+            } else if (inning === 2 && historyInning2.length > 0) {
+                const previousState = historyInning2.pop();
+                setScore(previousState.score);
+                setBalls(previousState.balls);
+                setWickets(previousState.wickets);
+                setTimeline(previousState.timeline);
+                setHistoryInning2([...historyInning2]);
+            } else {
+                alert('Nothing to undo');
+            }
+            return;
+        }
 
-        setHistory([...history, { score, balls, wickets, timeline }])
 
         
 
@@ -88,30 +110,37 @@ const Control = (
                     alert("Invalid input for extra runs. Please enter a number between 0 and 6")
                   }
             break
+            case "End Inning" :
+            if (inning === 1) {
+                alert(` Inning done`);
+                setTarget (score + 1)
+                setInning(2);
+                setScore(0);
+                setBalls(0);
+                setWickets(0);
+                setTimeline([]);}
+                break
             
-            case "UNDO":
-                if (inning === 1 && history.length > 0) {
-                    const previousState = history.pop()
-                    setScore(previousState.score)
-                    setBalls(previousState.balls)
-                    setWickets(previousState.wickets)
-                    setTimeline(previousState.timeline)
-                    setHistory([...history])
-                }
-                else if(inning === 1 && history.length === 0){
-                    alert('nothing to undo')
-                }
             
-
-            break
 
             default :
                 setScore(score)
-             }       
+             }   
+             const newState = { score, balls, wickets, timeline };
+
+             
+             if (inning === 1) {
+                 setHistoryInning1([...historyInning1, newState]);
+             } else if (inning === 2) {
+                 setHistoryInning2([...historyInning2, newState]);
+             }    
      }        
      const timelineRef = useRef()
   return (
     <Wrapper>
+         <div id='endInning'>
+        <input type= "button"  value= {"End Inning"} onClick = {updateScore} />
+      </div>
         <div className='timeline' ref={timelineRef}>
             {timeline.map(item => (
               <div className='timeline-item'>{item}</div>
@@ -136,11 +165,3 @@ const Control = (
 }
 
 export default Control
-
-
-
-
-
-
-
-
